@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/categories_screen.dart';
+import './screens/categories_screen.dart';
+import './screens/category_meals_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,7 +32,13 @@ class MyApp extends StatelessWidget {
             ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: CategoriesScreen(),
+      //home: CategoriesScreen(),
+      routes: {
+        //We can set a string for all the pages here to move between this pages using Navigator.of(context).pushNamed('set here the string of the page that we want to move to it ')
+        '/': (ctx) =>
+            CategoriesScreen(), //This '/' is defult route for home screen
+        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+      },
     );
   }
 }
