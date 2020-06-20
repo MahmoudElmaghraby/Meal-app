@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_app/screens/meal_detail_screen.dart';
 import './screens/categories_screen.dart';
 import './screens/category_meals_screen.dart';
 
@@ -38,7 +39,33 @@ class MyApp extends StatelessWidget {
         '/': (ctx) =>
             CategoriesScreen(), //This '/' is defult route for home screen
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+        MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
       },
+
+      /**
+       * This called when you clicked to route that not in routes above , it is like defult page to go when we havn't screen to go 
+       */
+      onGenerateRoute: (settings) {
+        print(settings.arguments);
+/*
+        if(settings.name == '/meal-detail'){
+          return ... ;
+        }else if (settings.name = '/something-else'){
+          return ... ;
+        }
+
+        return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
+        */
+      },
+
+      /**
+       * This runs if all the reoust above can't be reached or there is no onGenerateToute method 
+       * So we can use it for errors if no reute can be reached
+       */
+      onUnknownRoute: (settings){
+        return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
+      },
+
     );
   }
 }
