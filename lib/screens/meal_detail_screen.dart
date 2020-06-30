@@ -42,7 +42,7 @@ class MealDetailScreen extends StatelessWidget {
         title: Text('${selectedMeal.title}'),
       ),
       body: SingleChildScrollView(
-              child: Column(
+        child: Column(
           children: <Widget>[
             Container(
               height: 300,
@@ -86,6 +86,14 @@ class MealDetailScreen extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pop(mealId); // To go back from this screen
+        },
+        child: Icon(
+          Icons.delete,
         ),
       ),
     );

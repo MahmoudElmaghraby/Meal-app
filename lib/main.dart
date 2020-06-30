@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_app/screens/filters_screen.dart';
 import 'package:meal_app/screens/meal_detail_screen.dart';
 import 'package:meal_app/screens/tabs_screen.dart';
 import './screens/categories_screen.dart';
@@ -37,10 +38,10 @@ class MyApp extends StatelessWidget {
       //home: CategoriesScreen(),
       routes: {
         //We can set a string for all the pages here to move between this pages using Navigator.of(context).pushNamed('set here the string of the page that we want to move to it ')
-        '/': (ctx) =>
-            TabsScreen(), //This '/' is defult route for home screen
+        '/': (ctx) => TabsScreen(), //This '/' is defult route for home screen
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+        FiltersScreen.routeName: (ctx) => FiltersScreen(),
       },
 
       /**
@@ -63,10 +64,9 @@ class MyApp extends StatelessWidget {
        * This runs if all the reoust above can't be reached or there is no onGenerateToute method 
        * So we can use it for errors if no reute can be reached
        */
-      onUnknownRoute: (settings){
+      onUnknownRoute: (settings) {
         return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
       },
-
     );
   }
 }
