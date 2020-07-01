@@ -9,7 +9,6 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
-  final Function removeItem;
 
   MealItem({
     @required this.id,
@@ -18,7 +17,6 @@ class MealItem extends StatelessWidget {
     @required this.duration,
     @required this.affordability,
     @required this.complexity,
-    @required this.removeItem,
   });
 
   String get complexityText {
@@ -69,7 +67,7 @@ class MealItem extends StatelessWidget {
       //it runs when MealDetailScren is destroyed
       //This executed when mael_detail_screen pop and then to get the meal id that will be deleted that passed from meal_detail_screen when come back from it
       if (result != null) {
-        removeItem(result);
+        // removeItem(result);
       }
     });
   }
